@@ -1,0 +1,35 @@
+<div class="auth">
+    <div class="auth-container">
+        <h1 class="full">Log in</h1>
+
+        <form [formGroup]="loginForm">
+
+            <div id="input">
+                <label>Email</label>
+                <input type="text" formControlName="email" placeholder="Enter your email.">
+            </div>
+
+            <div id="error">
+                <p *ngIf="submitted && form.email.errors?.required">Email is required to login. Please enter your email
+                    address.</p>
+                <p *ngIf="submitted && !form.email.errors?.required && form.email.errors?.email">Email is not valid.
+                    Please enter valid email address.</p>
+            </div>
+
+            <div id="input">
+                <label>Password</label>
+                <input type="password" formControlName="password" placeholder="Enter your password.">
+            </div>
+
+            <div id="error">
+                <p *ngIf="submitted && form.password.errors?.required">Password is required to login. Please enter your
+                    password.</p>
+            </div>
+
+        </form>
+
+        <button class="positive-btn" (click)="loginUser()">
+            sign in
+        </button>
+    </div>
+</div>
